@@ -1,40 +1,46 @@
-import java.sql.SQLOutput;
 import java.lang.Math;
 
 
 public class Main {
     public static void main(String[] args) {
+
 // ПЕРВОЕ ЗАДАНИЕ
-        short[] q = new short[7];
+        short[] w = new short[7];
         short elem = 15;
         for (short i = 0; i <= 6; i++) {
-            q[i] = elem;
+            w[i] = elem;
             elem -= 2;
         }
-        for (short i = 0; i <= 6; i++)
-            System.out.print(q[i] + "\t");
-
 
 // ВТОРОЕ ЗАДАНИЕ
         double[] x = new double[16];
         for (int i = 0; i <= 15; i++)
             x[i] = Math.random() * 21 - 7;
 
-        int numb = 1;
-        for (int i = 0; i <= 15; i++) {
-            System.out.println(numb + " " + x[i]);
-            numb++;
-        }
-
-
 // ТРЕТЬЕ ЗАДАНИЕ
-         double[][] m = new double[7][16];
-         for (int i = 0; i <= 6; i++) {
-             if (q[i] == 13) {
-                 for (int j = 0; j <= 15; j++)
-                     m[i][j] = Math.tan(Math.cos(Math.atan((x[j] + 3.5) / 21)));
-             }
-             if (q[i] )
-         }
+        double[][] r = new double[7][16];
+        for (int i = 0; i <= 6; i++) {
+            if (w[i] == 13) {
+                for (int j = 0; j <= 15; j++)
+                    r[i][j] = Math.tan(Math.cos(Math.atan((x[j] + 3.5) / 21)));
+            }
+            if ((w[i] == 5) || (w[i] == 9) || (w[i] == 15)) {
+                for (int j = 0; j <= 15; j++)
+                    r[i][j] = Math.exp(Math.log(Math.sqrt(Math.abs(x[j]))));
+            }
+            else {
+                for (int j = 0; j <= 15; j++)
+                    r[i][j] = Math.pow((4 * Math.pow(Math.tan(Math.tan(x[j])), 3)), ((4 - Math.tan(Math.cbrt(Math.pow(x[j] / 2, x[j])))) / Math.sin(Math.tan(Math.tan(x[j])))));
+            }
+        }
+        String result;
+        for (int i = 0; i < r.length; i++) {
+            for (int j = 0; j < r[0].length; j++) {
+                result = String.format("%.2f", r[i][j]);
+                System.out.print(result + "  ");
+            }
+            System.out.println();
+        }
     }
 }
+
